@@ -1,4 +1,4 @@
-package net.holosen.onlineshopapp.db.models
+package com.baftanito.db.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

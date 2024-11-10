@@ -4,9 +4,8 @@ import android.app.Application
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import net.holosen.onlineshopapp.db.models.BasketEntity
-import net.holosen.onlineshopapp.db.models.UserEntity
-import net.holosen.onlineshopapp.db.repository.UserEntityRepository
+import com.baftanito.db.models.UserEntity
+import com.baftanito.db.repository.UserEntityRepository
 
 class UserEntityViewModel(application: Application) : AndroidViewModel(application) {
     private var repository = UserEntityRepository(application)

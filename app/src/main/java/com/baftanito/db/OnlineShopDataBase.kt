@@ -1,13 +1,13 @@
-package net.holosen.onlineshopapp.db
+package com.baftanito.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import net.holosen.onlineshopapp.db.dao.BasketEntityDao
-import net.holosen.onlineshopapp.db.dao.UserEntityDao
-import net.holosen.onlineshopapp.db.models.BasketEntity
-import net.holosen.onlineshopapp.db.models.UserEntity
+import com.baftanito.db.dao.BasketEntityDao
+import com.baftanito.db.dao.UserEntityDao
+import com.baftanito.db.models.BasketEntity
+import com.baftanito.db.models.UserEntity
 
 @Database(entities = [UserEntity::class, BasketEntity::class], version = 7)
 abstract class OnlineShopDataBase : RoomDatabase() {

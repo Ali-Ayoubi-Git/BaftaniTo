@@ -1,6 +1,6 @@
 package net.holosen.onlineshopapp.models.customer
 
-import net.holosen.onlineshopapp.db.models.UserEntity
+import com.baftanito.db.models.UserEntity
 
 data class UserVM(
     var address: String? = "",

@@ -1,8 +1,8 @@
-package net.holosen.onlineshopapp.db.dao
+package com.baftanito.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import net.holosen.onlineshopapp.db.models.BasketEntity
+import com.baftanito.db.models.BasketEntity
 
 @Dao
 interface BasketEntityDao {

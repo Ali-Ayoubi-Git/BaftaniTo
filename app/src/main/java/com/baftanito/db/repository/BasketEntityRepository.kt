@@ -1,10 +1,10 @@
-package net.holosen.onlineshopapp.db.repository
+package com.baftanito.db.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData
 import net.holosen.onlineshopapp.db.OnlineShopDataBase
-import net.holosen.onlineshopapp.db.dao.BasketEntityDao
-import net.holosen.onlineshopapp.db.models.BasketEntity
+import com.baftanito.db.dao.BasketEntityDao
+import com.baftanito.db.models.BasketEntity
 
 class BasketEntityRepository(application: Application) {
 

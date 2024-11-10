@@ -1,10 +1,10 @@
-package net.holosen.onlineshopapp.db.repository
+package com.baftanito.db.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData
 import net.holosen.onlineshopapp.db.OnlineShopDataBase
-import net.holosen.onlineshopapp.db.dao.UserEntityDao
-import net.holosen.onlineshopapp.db.models.UserEntity
+import com.baftanito.db.dao.UserEntityDao
+import com.baftanito.db.models.UserEntity
 
 class UserEntityRepository(application: Application) {
 

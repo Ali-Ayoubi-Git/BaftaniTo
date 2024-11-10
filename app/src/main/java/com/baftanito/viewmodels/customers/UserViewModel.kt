@@ -1,4 +1,4 @@
-package net.holosen.onlineshopapp.viewmodels.customers
+package com.baftanito.viewmodels.customers
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
