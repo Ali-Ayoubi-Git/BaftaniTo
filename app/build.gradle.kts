@@ -52,8 +52,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     //retrofit
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
+    implementation (libs.retrofit2.retrofit) // یا جدیدترین نسخه
+    implementation (libs.converter.gson)
     //dagger-hilt
     implementation(libs.dagger)
     implementation(libs.androidx.navigation.compose)
@@ -75,6 +75,8 @@ dependencies {
     implementation(libs.lifecycle.viewmodel)
     //ksp(libs.room.compiler)
     implementation(libs.glide)
+    implementation (libs.okhttp)
+
 
 
     testImplementation(libs.junit)
