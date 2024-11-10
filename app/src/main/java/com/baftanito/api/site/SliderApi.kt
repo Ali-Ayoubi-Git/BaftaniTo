@@ -1,4 +1,4 @@
-package com.baftanito.api
+package com.baftanito.api.site
 
 import com.baftanito.models.site.Slider
 import net.holosen.onlineshopapp.models.ServiceResponse
