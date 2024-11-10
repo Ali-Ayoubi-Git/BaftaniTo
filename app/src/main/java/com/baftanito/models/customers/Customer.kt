@@ -1,6 +1,6 @@
 package com.baftanito.models.customers
 
-data class Costomer(
+data class Customer(
     var id: Long?,
     var address: String?,
     var firstName: String?,

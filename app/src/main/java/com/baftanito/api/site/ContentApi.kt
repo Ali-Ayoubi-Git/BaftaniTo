@@ -10,7 +10,7 @@ interface ContentApi {
     @GET("/api/slider")
     suspend fun getContent(): ServiceResponse<Content>
 
-    @GET("/api/slider/{id}")
-    suspend fun getContentById(@Path("id") id: Long): ServiceResponse<Content>
+    @GET("/api/slider/{title}")
+    suspend fun getContentByTitle(@Path("title") id: String): ServiceResponse<Content>
 
 }
