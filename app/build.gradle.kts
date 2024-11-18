@@ -2,20 +2,22 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.hiltAndroid) apply false
-    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.hiltAndroid)
+    alias(libs.plugins.ksp)
+    id("kotlin-kapt") // اضافه کردن KAPT
 }
 
 android {
-    namespace = "com.baftanito"
-    compileSdk = 34
+    namespace = "com.baftanito.app"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.baftanito"
+        applicationId = "com.baftanito.app"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,56 +31,58 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         compose = true
+    }
+
+    packaging {
+        resources {
+            excludes += "META-INF/gradle/incremental.annotation.processors"
+        }
     }
 }
 
 dependencies {
-
+    // AndroidX
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    //retrofit
-    implementation (libs.retrofit2.retrofit) // یا جدیدترین نسخه
-    implementation (libs.converter.gson)
-    //dagger-hilt
-    implementation(libs.dagger)
+
+    // Navigation
     implementation(libs.androidx.navigation.compose)
-    implementation(platform(libs.androidx.compose.bom))
-
-    implementation(libs.dagger.compiler)
-    implementation(libs.dagger.android)
-
-    implementation(libs.dagger.android.processor)
-    implementation(libs.dagger.hilt)
-
-    implementation(libs.dagger.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
 
-    //room
-    implementation(libs.room)
+    // Retrofit
+    implementation(libs.retrofit2.retrofit)
+    implementation(libs.converter.gson)
+
+    // Room
     implementation(libs.room.runtime)
-    annotationProcessor(libs.room.compiler)
-    implementation(libs.lifecycle.viewmodel)
-    //ksp(libs.room.compiler)
+    ksp(libs.room.compiler)
+
+    // Dagger-Hilt
+    implementation(libs.dagger.hilt)
+    kapt(libs.dagger.hilt.compiler)
+
+    // Glide
     implementation(libs.glide)
-    implementation (libs.okhttp)
 
+    // OkHttp
+    implementation(libs.okhttp)
 
-
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -87,5 +91,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
-
-
+kapt{
+    correctErrorTypes; true
+}
