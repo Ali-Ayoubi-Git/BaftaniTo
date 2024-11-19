@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun ProductFilterView() {
-    val filters = listOf("All", "New", "Popular", "Men's", "Women's", "Children's", "Style")
+    val filters = listOf("All", "New", "Popular", "Men", "Women", "Style")
     var selectedFilter by remember { mutableIntStateOf(0) }
 
 
@@ -40,7 +40,7 @@ fun ProductFilterView() {
             ) {
                 Text(
                     text = filters[index],
-                    color = Color.Black,
+                    color = Color.DarkGray,
                     fontSize = 15.sp,
                     textAlign = TextAlign.Center
                 )
