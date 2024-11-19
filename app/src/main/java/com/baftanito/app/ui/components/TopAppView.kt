@@ -35,7 +35,7 @@ fun TopAppView() {
         }
         Text(
             modifier = Modifier.weight(1f),
-            text = "BaftaniTo",
+            text = "OnlineShop",
             fontSize = 24.sp,
             color = if (isSystemInDarkTheme()) Color.White else Color.Black,
             textAlign = TextAlign.Center

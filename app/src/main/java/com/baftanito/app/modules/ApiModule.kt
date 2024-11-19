@@ -19,6 +19,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
+
 @InstallIn(SingletonComponent::class)
 object ApiModule {
 
@@ -26,7 +27,9 @@ object ApiModule {
     @Singleton
     fun provideApi(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://10.0.2.2:8080/")
+            //https://192.168.1.10:8080/
+            //https://onlineshop.holosen.net
+            .baseUrl("https://onlineshop.holosen.net")
             .client(UnsafeSSLConfig.unsafeOkHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

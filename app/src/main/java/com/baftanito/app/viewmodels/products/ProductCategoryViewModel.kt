@@ -3,11 +3,11 @@ package com.baftanito.app.viewmodels.products
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.baftanito.app.models.ServiceResponse
 import com.baftanito.app.models.products.ProductCategory
 import com.baftanito.app.repositories.products.ProductCategoryRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import com.baftanito.app.models.ServiceResponse
 import javax.inject.Inject
 
 @HiltViewModel
