@@ -44,7 +44,7 @@ fun SliderItemView(slider: Slider) {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(15.dp),
+                            .padding(),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) { CircularProgressIndicator() }
@@ -68,7 +68,6 @@ fun SliderItemView(slider: Slider) {
 
                 }
             }
-
         }
     }
 }

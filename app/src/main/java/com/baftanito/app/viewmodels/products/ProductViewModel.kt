@@ -14,9 +14,9 @@ class ProductViewModel @Inject constructor(
     private val repository: com.baftanito.app.repositories.products.ProductRepository
 ) : ViewModel() {
 
-    var dataList = mutableStateOf<List<com.baftanito.app.models.products.Product>>(listOf())
+    var dataList = mutableStateOf<List<Product>>(listOf())
     var isLoading = mutableStateOf(true)
-    var data = mutableStateOf<com.baftanito.app.models.products.Product?>(null)
+    var data = mutableStateOf<Product?>(null)
 
     init {
         getProducts(0, 6) { response ->

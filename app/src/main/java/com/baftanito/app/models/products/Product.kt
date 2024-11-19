@@ -6,11 +6,11 @@ data class Product(
     var category: ProductCategory?,
     var colors: List<ProductColor>,
     var description: String,
-    var image: String,
-    var price: Long,
+    var image: String?,
+    var price: Long?,
     var sizes: List<ProductSize>,
-    var title: String,
-    var visitCount: Int
+    var title: String?,
+    var visitCount: Int?
 
 
 

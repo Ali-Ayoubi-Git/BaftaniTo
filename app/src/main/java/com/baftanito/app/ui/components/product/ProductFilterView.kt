@@ -17,10 +17,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.baftanito.app.viewmodels.products.ProductViewModel
 
 
 @Composable
-fun ProductFilterView() {
+fun ProductFilterView(
+    viewModel: ProductViewModel= hiltViewModel()
+) {
     val filters = listOf("All", "New", "Popular", "Men", "Women", "Style")
     var selectedFilter by remember { mutableIntStateOf(0) }
 
@@ -29,10 +35,26 @@ fun ProductFilterView() {
         items(filters.size) { index ->
             TextButton(
                 onClick = {
-                    selectedFilter=index
+                    selectedFilter = index
+                    when (selectedFilter) {
+                        0 -> {
+                            viewModel.getProducts(0,6){}
+                        }
+
+                        1 -> {
+                            viewModel.getNewProducts{}
+                        }
+
+                        2 -> {
+                            viewModel.getPopularProducts{}
+                        }
+                        // 3->{}
+                        //  4->{}
+                        //  5->{}
+                    }
                 },
                 colors = ButtonDefaults.buttonColors(
-                    if (selectedFilter==index) Color.LightGray
+                    if (selectedFilter == index) Color.LightGray
                     else Color.Transparent
                 ),
                 modifier = Modifier.width(90.dp),

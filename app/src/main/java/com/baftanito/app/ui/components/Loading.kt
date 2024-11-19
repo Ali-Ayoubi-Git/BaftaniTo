@@ -19,13 +19,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Loading(width: Dp, counnt: Int=1) {
+fun Loading(modifier: Modifier, count: Int = 1) {
     LazyRow {
-        items(counnt){
+        items(count) {
             Card(
                 modifier = Modifier
-                    .width(width)
-                    .height(200.dp)
                     .shadow(
                         elevation = 8.dp,
                         shape = RoundedCornerShape(16.dp),
