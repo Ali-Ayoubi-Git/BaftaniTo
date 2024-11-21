@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -21,11 +22,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.baftanito.app.models.products.Product
+import com.google.gson.Gson
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun ProductListItemView(product: Product) {
+fun ProductListItemView(product: Product, navController: NavController) {
     Card(
         modifier = Modifier
             .fillMaxSize()
@@ -37,7 +40,10 @@ fun ProductListItemView(product: Product) {
                 clip = true
             ),
         shape = RoundedCornerShape(16.dp),
-        onClick = {/*TODO*/ }
+        onClick = {
+            val productJson= Gson().toJson(product)
+            navController.navigate("showProduct/${product.id}")
+        }
     ) {
         Box {
             GlideImage(
@@ -57,7 +63,7 @@ fun ProductListItemView(product: Product) {
                 })
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .padding(20.dp),
                 contentAlignment = Alignment.TopStart
             ) {
@@ -80,7 +86,7 @@ fun ProductListItemView(product: Product) {
                     text = "${product.price!!} IRT",
                     color = Color.White,
                     fontSize = 25.sp,
-                    )
+                )
             }
         }
     }

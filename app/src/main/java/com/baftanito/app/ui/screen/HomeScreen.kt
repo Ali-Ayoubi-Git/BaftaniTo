@@ -15,13 +15,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.baftanito.app.ui.components.Loading
 import com.baftanito.app.ui.components.product.ProductCategoryListView
-import com.baftanito.app.ui.components.product.ProductListByFilter
+import com.baftanito.app.ui.components.product.ProductFilterView
 import com.baftanito.app.ui.components.product.ProductListItemView
 import com.baftanito.app.ui.components.slider.SliderListView
 import com.baftanito.app.viewmodels.products.ProductViewModel
-import com.baftanito.app.ui.components.Loading
-import com.baftanito.app.ui.components.product.ProductFilterView
 
 @Composable
 fun HomeScreen(
@@ -57,7 +56,7 @@ fun HomeScreen(
             }
         } else {
             items(priductList.value.size) { index ->
-                ProductListItemView(priductList.value[index])
+                ProductListItemView(priductList.value[index],navController)
                 Spacer(modifier = Modifier.heightIn(10.dp))
             }
         }

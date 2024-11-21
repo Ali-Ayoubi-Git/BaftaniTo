@@ -14,18 +14,24 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.baftanito.app.viewmodels.products.ProductViewModel
 
 @Composable
-fun ProductListByFilter(viewModel: ProductViewModel = hiltViewModel()) {
+fun ProductListByFilter(
+    viewModel: ProductViewModel = hiltViewModel(),
+    navController: NavHostController,
+) {
     var dataList by remember { mutableStateOf(viewModel.dataList) }
 
     Column {
         ProductFilterView()
         Spacer(modifier = Modifier.width(20.dp))
-        LazyRow(modifier = Modifier.fillMaxSize().padding()) {
+        LazyRow(modifier = Modifier
+            .fillMaxSize()
+            .padding()) {
             items(dataList.value.size) { index ->
-                ProductListItemView(dataList.value[index])
+                ProductListItemView(dataList.value[index], navController)
                 Spacer(modifier = Modifier.width(10.dp))
 
             }

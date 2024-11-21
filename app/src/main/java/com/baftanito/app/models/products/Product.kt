@@ -8,7 +8,7 @@ data class Product(
     var description: String,
     var image: String?,
     var price: Long?,
-    var sizes: List<ProductSize>,
+    var sizes: List<ProductSize>?,
     var title: String?,
     var visitCount: Int?
 
