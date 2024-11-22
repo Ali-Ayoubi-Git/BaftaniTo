@@ -37,6 +37,17 @@ class ProductViewModel @Inject constructor(
             onResponse(response)
         }
     }
+    fun getProductByCategoryId(
+        categoryId: Long,
+        pageIndex: Int,
+        pageSize: Int,
+        onResponse: (response: ServiceResponse<Product>) -> Unit
+    ) {
+        viewModelScope.launch {
+            var response = repository.getProductByCategoryId(categoryId,pageIndex, pageSize)
+            onResponse(response)
+        }
+    }
 
     fun getProductsByCategoryId(
         categoryId: Long,

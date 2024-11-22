@@ -24,7 +24,8 @@ fun MainScreen() {
         topBar = {
             val route = currentRoute.value?.destination?.route
             if (route == "home") {
-                TopAppView()}
+                TopAppView()
+            }
         }
 
     ) {
@@ -37,31 +38,28 @@ fun MainScreen() {
             composable("home") {
                 HomeScreen(navController)
             }
-            composable("viewCozy") {
-                HomeScreen(navController)
-
-            }
-            composable("shopping") {
-                HomeScreen(navController)
-
-            }
-            composable("person") {
-                HomeScreen(navController)
-
-            }
-            composable(
-                "showProduct/{productId}",
+            composable("products/{categoryId}",
                 arguments = listOf(
-                    navArgument("productId") { type = NavType.LongType }
+                    navArgument("categoryId") { type = NavType.LongType }
                 )
             ) { backStack ->
-               // fullScreen = true
-               backStack.arguments?.getLong("productId").let {
-                    ShowProductScreen(it!!,navController,isFullScreen = true)
+                backStack.arguments?.getLong("categoryId").let {
+                    ProductScreen(it!!, navController, isFullScreen = true)
 
                 }
 
+                composable(
+                    "showProduct/{productId}",
+                    arguments = listOf(
+                        navArgument("productId") { type = NavType.LongType }
+                    )
+                ) { backStack ->
+                    // fullScreen = true
+                    backStack.arguments?.getLong("productId").let {
+                        ShowProductScreen(it!!, navController, isFullScreen = true)
 
+                    }
+                }
             }
         }
     }

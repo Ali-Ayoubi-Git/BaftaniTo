@@ -165,7 +165,7 @@ fun ShowProductScreen(
                                 modifier = Modifier.size(40.dp)
                             ) {
                                 Text(
-                                    text = data.value!!.sizes!![index].title!!,
+                                    text = data.value!!.sizes!![index].title!!+"1",
                                     fontWeight = FontWeight.Bold,
                                     color = if (selectedSize == index) Color.Black
                                     else Color.White
@@ -226,7 +226,7 @@ fun ShowProductScreen(
                             .fillMaxWidth()
                             .height(50.dp),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.White)
+                            containerColor = Color.Red)
                     ) {
                         Text(text = "Buy Now", fontWeight = FontWeight.Bold)
                     }
