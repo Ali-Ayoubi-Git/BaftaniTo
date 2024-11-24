@@ -21,6 +21,7 @@ navigationCompose="2.8.3"
 hiltNavigation="1.2.0"
 retrofitVersion = "2.9.0"
 room = "2.6.1"
+supportAnnotations = "28.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -58,6 +59,7 @@ lifecycle-viewmodel={group="androidx.lifecycle",name="lifecycle-viewmodel-ktx",v
 room = {group="androidx.room",name="room-ktx",version.ref="room"}
 room-runtime={group="androidx.room",name="room-runtime",version.ref="room"}
 room-compiler={group="androidx.room",name="room-compiler",version.ref="room"}
+support-annotations = { group = "com.android.support", name = "support-annotations", version.ref = "supportAnnotations" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

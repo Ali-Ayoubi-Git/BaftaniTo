@@ -11,7 +11,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keep class com.baftanito.app.config.BaftaniToApplication { *; }
+-keep class com.onlineShop.app.config.OnlineShopApplication { *; }
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.

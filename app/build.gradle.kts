@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.baftanito.app"
+    namespace = "com.onlineShop.app"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.baftanito.app"
+        applicationId = "com.onlineShop.app"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
@@ -70,6 +70,7 @@ dependencies {
 
     // Room
     implementation(libs.room.runtime)
+    implementation(libs.support.annotations)
     ksp(libs.room.compiler)
 
     // Dagger-Hilt
