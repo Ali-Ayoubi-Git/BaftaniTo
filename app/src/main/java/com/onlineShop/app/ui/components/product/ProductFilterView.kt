@@ -67,6 +67,7 @@ fun ProductFilterView(
             }
             Spacer(modifier = Modifier.width(10.dp))
 
+
         }
     }
 

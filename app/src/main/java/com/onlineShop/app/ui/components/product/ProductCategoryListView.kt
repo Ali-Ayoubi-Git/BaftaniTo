@@ -12,11 +12,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.onlineShop.app.ui.components.Loading
 import com.onlineShop.app.viewmodels.products.ProductCategoryViewModel
 
 @Composable
-fun ProductCategoryListView(viewModel: ProductCategoryViewModel = hiltViewModel()) {
+fun ProductCategoryListView(navController: NavController, viewModel: ProductCategoryViewModel = hiltViewModel()) {
 
     var dataList by remember { mutableStateOf(viewModel.dataList) }
     var isLoading by remember { mutableStateOf(viewModel.isLoading) }
@@ -27,7 +28,7 @@ fun ProductCategoryListView(viewModel: ProductCategoryViewModel = hiltViewModel(
     } else {
         LazyRow {
             items(dataList.value.size) { index ->
-                ProductCategoryItemView(dataList.value[index])
+                ProductCategoryItemView(dataList.value[index], navController )
                 Spacer(modifier = Modifier.width(10.dp))
             }
         }

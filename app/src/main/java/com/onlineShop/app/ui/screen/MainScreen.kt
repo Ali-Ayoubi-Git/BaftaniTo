@@ -5,7 +5,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -14,40 +14,32 @@ import androidx.navigation.navArgument
 import com.onlineShop.app.ui.components.TopAppView
 
 
-@Preview
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
-    val currentRoute = navController.currentBackStackEntryFlow.collectAsState(initial = null)
 
-    Scaffold(
-        topBar = {
-            val route = currentRoute.value?.destination?.route
-            if (route == "home") {
-                TopAppView()
-            }
-        }
+    Scaffold {
 
-    ) {
         NavHost(
             modifier = Modifier.padding(it),
             navController = navController,
-
             startDestination = "home"
         ) {
             composable("home") {
                 HomeScreen(navController)
             }
-            /* composable("products/{categoryId}",
-                 arguments = listOf(
-                     navArgument("categoryId") { type = NavType.LongType }
-                 )
-             ) { backStack ->
-                 backStack.arguments?.getLong("categoryId").let {
-                     ProductScreen(it!!, navController, isFullScreen = true)
+            //نمایش دستبه بندی محصولات مربوطه
+            composable("products/{categoryId}/{title}",
+                arguments = listOf(
+                    navArgument("categoryId") { type = NavType.LongType },
+                    navArgument("title") { type = NavType.StringType },
+                )) { backStack ->
+                val id = backStack.arguments?.getLong("categoryId")
+                val title = backStack.arguments?.getString("title")
+                ProductsScreen(id!!,title!!, navController)
 
-                 }*/
-
+            }
+            //نمایش صفحه خود محصول
             composable(
                 "showProduct/{productId}",
                 arguments = listOf(
@@ -55,10 +47,13 @@ fun MainScreen() {
                 )
             ) { backStack ->
                 backStack.arguments?.getLong("productId").let {
-                    ShowProductScreen(it!!, navController, isFullScreen = true)
+                    ShowProductScreen(it!!, navController)
 
                 }
             }
         }
     }
+
+
 }
+

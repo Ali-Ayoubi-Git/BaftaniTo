@@ -52,8 +52,9 @@ fun ShowProductScreen(
     productId: Long,
     navController: NavHostController,
     viewModel: ProductViewModel = hiltViewModel(),
-    isFullScreen: Boolean
+
 ) {
+
     val data by remember { mutableStateOf(viewModel.data) }
     var isLoading by remember { mutableStateOf(true) }
     val context = LocalContext.current
@@ -109,6 +110,7 @@ fun ShowProductScreen(
                         )
                     )
             )
+            //دکمه برگشت
             Box(
                 modifier = Modifier
                     .fillMaxWidth()

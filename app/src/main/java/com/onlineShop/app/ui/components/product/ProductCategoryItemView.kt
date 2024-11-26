@@ -20,12 +20,13 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.onlineShop.app.models.products.ProductCategory
 import com.skydoves.landscapist.glide.GlideImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ProductCategoryItemView(productCategory: ProductCategory) {
+fun ProductCategoryItemView(productCategory: ProductCategory,navController: NavController) {
     Card(
         modifier = Modifier
             .width(155.dp)
@@ -36,7 +37,9 @@ fun ProductCategoryItemView(productCategory: ProductCategory) {
                 clip = true
             ),
         shape = RoundedCornerShape(20.dp),
-        onClick = {/*TODO*/ }
+        onClick = {
+            navController.navigate("products/${productCategory.id}/${productCategory.title}")
+        }
     ) {
         Box {
             GlideImage(
