@@ -1,4 +1,4 @@
-package com.baftanito
+package com.onlineShop
 
 import org.junit.Test
 

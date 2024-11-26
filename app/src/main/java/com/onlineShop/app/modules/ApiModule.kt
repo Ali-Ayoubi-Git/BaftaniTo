@@ -5,7 +5,7 @@ import com.onlineShop.app.api.invoices.InvoiceApi
 import com.onlineShop.app.api.invoices.TransactionApi
 import com.onlineShop.app.api.products.ProductApi
 import com.onlineShop.app.api.products.ColorApi
-import com.baftanito.app.api.products.ProductCategoryApi
+import com.onlineShop.app.api.products.ProductCategoryApi
 import com.onlineShop.app.api.site.BlogApi
 import com.onlineShop.app.api.site.ContentApi
 import com.onlineShop.app.api.site.SliderApi

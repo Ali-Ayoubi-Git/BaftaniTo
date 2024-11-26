@@ -1,10 +1,10 @@
-package com.baftanito.app.db.viewmodels
+package com.onlineShop.app.db.viewmodels
 
 import android.app.Application
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.baftanito.app.db.models.UserEntity
+import com.onlineShop.app.db.models.UserEntity
 import com.onlineShop.app.db.repository.UserEntityRepository
 
 class UserEntityViewModel(application: Application) : AndroidViewModel(application) {

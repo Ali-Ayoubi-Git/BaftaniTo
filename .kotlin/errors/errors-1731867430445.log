@@ -1,5 +1,5 @@
 kotlin version: 2.0.0
-error message: org.jetbrains.kotlin.util.FileAnalysisException: While analysing F:/AndroidStudio/BaftaniTO/app/src/main/java/com/baftanito/app/db/viewmodels/BasketEntityViewModel.kt:28:16: java.lang.AssertionError: Instead use FirErrorTypeRef for ERROR CLASS: Ambiguity: first, [kotlin/collections/first, kotlin/collections/first, kotlin/collections/first]
+error message: org.jetbrains.kotlin.util.FileAnalysisException: While analysing F:/AndroidStudio/OnlineShop/app/src/main/java/com/baftanito/app/db/viewmodels/BasketEntityViewModel.kt:28:16: java.lang.AssertionError: Instead use FirErrorTypeRef for ERROR CLASS: Ambiguity: first, [kotlin/collections/first, kotlin/collections/first, kotlin/collections/first]
 	at org.jetbrains.kotlin.util.AnalysisExceptionsKt.wrapIntoFileAnalysisExceptionIfNeeded(AnalysisExceptions.kt:56)
 	at org.jetbrains.kotlin.fir.FirCliExceptionHandler.handleExceptionOnFileAnalysis(Utils.kt:180)
 	at org.jetbrains.kotlin.fir.pipeline.AnalyseKt.runCheckers(analyse.kt:46)

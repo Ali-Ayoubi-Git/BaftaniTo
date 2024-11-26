@@ -3,7 +3,7 @@ package com.onlineShop.app.db.repository
 import android.app.Application
 import androidx.lifecycle.LiveData
 import com.onlineShop.app.db.dao.UserEntityDao
-import com.baftanito.app.db.models.UserEntity
+import com.onlineShop.app.db.models.UserEntity
 import com.onlineShop.app.db.OnlineShopDataBase
 
 class UserEntityRepository(application: Application) {

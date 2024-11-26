@@ -1,4 +1,4 @@
-package com.baftanito.app.api.products
+package com.onlineShop.app.api.products
 
 import com.onlineShop.app.models.products.ProductCategory
 import com.onlineShop.app.models.ServiceResponse

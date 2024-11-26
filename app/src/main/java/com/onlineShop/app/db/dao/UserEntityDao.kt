@@ -2,7 +2,7 @@ package com.onlineShop.app.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.baftanito.app.db.models.UserEntity
+import com.onlineShop.app.db.models.UserEntity
 
 @Dao
 interface UserEntityDao {

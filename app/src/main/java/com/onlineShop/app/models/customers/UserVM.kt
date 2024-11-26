@@ -1,6 +1,6 @@
 package com.onlineShop.app.models.customers
 
-import com.baftanito.app.db.models.UserEntity
+import com.onlineShop.app.db.models.UserEntity
 
 data class UserVM(
     var address: String? = "",

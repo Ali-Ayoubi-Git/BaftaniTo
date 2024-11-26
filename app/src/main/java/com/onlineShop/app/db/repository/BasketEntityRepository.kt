@@ -1,4 +1,4 @@
-package com.baftanito.app.db.repository
+package com.onlineShop.app.db.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData

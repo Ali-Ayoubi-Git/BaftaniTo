@@ -1,6 +1,6 @@
 package com.onlineShop.app.repositories.products
 
-import com.baftanito.app.api.products.ProductCategoryApi
+import com.onlineShop.app.api.products.ProductCategoryApi
 import com.onlineShop.app.models.products.ProductCategory
 import dagger.hilt.android.scopes.ActivityScoped
 import com.onlineShop.app.models.ServiceResponse

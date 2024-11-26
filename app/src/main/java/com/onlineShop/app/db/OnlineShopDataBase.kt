@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.onlineShop.app.db.dao.BasketEntityDao
 import com.onlineShop.app.db.dao.UserEntityDao
 import com.onlineShop.app.db.models.BasketEntity
-import com.baftanito.app.db.models.UserEntity
+import com.onlineShop.app.db.models.UserEntity
 
 @Database(entities = [UserEntity::class, BasketEntity::class], version = 7)
 abstract class OnlineShopDataBase : RoomDatabase() {
