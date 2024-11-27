@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.onlineShop.app.ui.components.TopAppView
+import com.onlineShop.app.utils.ThisApp
 
 
 @Composable
@@ -29,14 +30,17 @@ fun MainScreen() {
                 HomeScreen(navController)
             }
             //نمایش دستبه بندی محصولات مربوطه
-            composable("products/{categoryId}/{title}",
+            composable(
+                "products/{categoryId}/{title}",
                 arguments = listOf(
                     navArgument("categoryId") { type = NavType.LongType },
                     navArgument("title") { type = NavType.StringType },
-                )) { backStack ->
+                )
+            ) { backStack ->
                 val id = backStack.arguments?.getLong("categoryId")
                 val title = backStack.arguments?.getString("title")
-                ProductsScreen(id!!,title!!, navController)
+                ThisApp.productCategoryId = id!!
+                ProductsScreen(id!!, title!!, navController)
 
             }
             //نمایش صفحه خود محصول

@@ -17,10 +17,9 @@ class ProductByCategoryViewModel @Inject constructor(
 ) : ViewModel() {
 
     var categoryId: Long = ThisApp.productCategoryId
-    var pageSize = 3
+    var pageSize = 4
     var pageIndex = mutableStateOf(0)
     private var scrollPosition = 0
-
     var dataList = mutableStateOf<List<Product>>(listOf())
     var isLoading = mutableStateOf(true)
 

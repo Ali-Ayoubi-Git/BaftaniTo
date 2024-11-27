@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.onlineShop.app.ui.components.Loading
+import com.onlineShop.app.ui.components.LoadingInRow
 import com.onlineShop.app.viewmodels.products.ProductCategoryViewModel
 
 @Composable
@@ -22,7 +22,7 @@ fun ProductCategoryListView(navController: NavController, viewModel: ProductCate
     var dataList by remember { mutableStateOf(viewModel.dataList) }
     var isLoading by remember { mutableStateOf(viewModel.isLoading) }
     if (isLoading.value) {
-        Loading(modifier = Modifier
+        LoadingInRow(modifier = Modifier
             .width(160.dp)
             .height(200.dp),3)
     } else {

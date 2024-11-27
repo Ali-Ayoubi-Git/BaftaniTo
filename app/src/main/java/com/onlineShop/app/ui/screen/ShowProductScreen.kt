@@ -40,12 +40,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.onlineShop.app.ui.components.Loading
+import com.onlineShop.app.ui.components.LoadingInColumn
+import com.onlineShop.app.ui.components.LoadingInRow
 import com.onlineShop.app.viewmodels.products.ProductViewModel
 
 import com.skydoves.landscapist.glide.GlideImage
 import java.util.Locale
-import kotlin.collections.get
 
 @Composable
 fun ShowProductScreen(
@@ -74,7 +74,7 @@ fun ShowProductScreen(
         }
     }
     if (isLoading) {
-        Loading(modifier = Modifier.fillMaxSize())
+        LoadingInColumn(modifier = Modifier.fillMaxSize())
     } else {
         Box(
             modifier = Modifier

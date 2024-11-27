@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.onlineShop.app.ui.components.Loading
+import com.onlineShop.app.ui.components.LoadingInRow
 import com.onlineShop.app.ui.components.TopAppView
 import com.onlineShop.app.ui.components.product.ProductCategoryListView
 import com.onlineShop.app.ui.components.product.ProductFilterView
@@ -57,7 +57,7 @@ fun HomeScreen(
             }
             if (isLoading.value) {
                 item {
-                    Loading(
+                    LoadingInRow(
                         Modifier
                             .fillMaxSize()
                             .height(200.dp)
