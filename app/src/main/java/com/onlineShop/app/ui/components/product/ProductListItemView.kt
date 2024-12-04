@@ -26,6 +26,7 @@ import com.google.gson.Gson
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
+//لیست محصولات عمودی در mainScreen
 fun ProductListItemView(product: Product, navController: NavController) {
     Card(
         modifier = Modifier

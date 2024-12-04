@@ -34,6 +34,7 @@ import com.onlineShop.app.ui.components.product.ProductListItemView
 import com.onlineShop.app.viewmodels.products.ProductByCategoryViewModel
 
 @Composable
+//صفحه نمایش محصولات طبق دسته بندی
 fun ProductsScreen(
     it: Long,
     title: String?,
@@ -56,7 +57,7 @@ fun ProductsScreen(
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = "BACK",
-                        tint = Color.White
+                        tint = Color.DarkGray
                     )
                 }
                 Text(

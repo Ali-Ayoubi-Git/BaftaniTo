@@ -26,6 +26,7 @@ import com.skydoves.landscapist.glide.GlideImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+//دسته بندی محصولات به طور لیست افقی
 fun ProductCategoryItemView(productCategory: ProductCategory,navController: NavController) {
     Card(
         modifier = Modifier

@@ -9,7 +9,7 @@ import com.onlineShop.app.db.dao.UserEntityDao
 import com.onlineShop.app.db.models.BasketEntity
 import com.onlineShop.app.db.models.UserEntity
 
-@Database(entities = [UserEntity::class, BasketEntity::class], version = 7)
+@Database(entities = [UserEntity::class, BasketEntity::class], version = 2)
 abstract class OnlineShopDataBase : RoomDatabase() {
 
     abstract fun userDao(): UserEntityDao

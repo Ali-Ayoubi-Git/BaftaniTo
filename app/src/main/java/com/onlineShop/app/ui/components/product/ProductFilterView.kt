@@ -22,6 +22,7 @@ import com.onlineShop.app.viewmodels.products.ProductViewModel
 
 
 @Composable
+//category های خاص در  صفحه  mainScreen
 fun ProductFilterView(
     viewModel: ProductViewModel= hiltViewModel()
 ) {

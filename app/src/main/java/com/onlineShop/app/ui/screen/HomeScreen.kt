@@ -30,7 +30,7 @@ fun HomeScreen(
     navController: NavHostController,
     viewModel: ProductViewModel = hiltViewModel()
 ) {
-    val priductList by remember { mutableStateOf(viewModel.dataList) }
+    val productList by remember { mutableStateOf(viewModel.dataList) }
     var isLoading by remember { mutableStateOf(viewModel.isLoading) }
 
     Scaffold(
@@ -64,8 +64,8 @@ fun HomeScreen(
                     )
                 }
             } else {
-                items(priductList.value.size) { index ->
-                    ProductListItemView(priductList.value[index], navController)
+                items(productList.value.size) { index ->
+                    ProductListItemView(productList.value[index], navController)
                     Spacer(modifier = Modifier.heightIn(10.dp))
                     Spacer(modifier = Modifier.width(6.dp))
 

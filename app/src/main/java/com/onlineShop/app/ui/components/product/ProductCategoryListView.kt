@@ -21,6 +21,7 @@ fun ProductCategoryListView(navController: NavController, viewModel: ProductCate
 
     var dataList by remember { mutableStateOf(viewModel.dataList) }
     var isLoading by remember { mutableStateOf(viewModel.isLoading) }
+
     if (isLoading.value) {
         LoadingInRow(modifier = Modifier
             .width(160.dp)

@@ -40,20 +40,30 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.onlineShop.app.db.models.BasketEntity
+import com.onlineShop.app.db.viewmodels.BasketEntityViewModel
 import com.onlineShop.app.ui.components.LoadingInColumn
 import com.onlineShop.app.ui.components.LoadingInRow
 import com.onlineShop.app.viewmodels.products.ProductViewModel
 
 import com.skydoves.landscapist.glide.GlideImage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.Dispatcher
 import java.util.Locale
+import kotlin.collections.get
 
 @Composable
+//نمایش مشخصات محصول و خرید محصول
 fun ShowProductScreen(
     productId: Long,
     navController: NavHostController,
+    basketViewModel: BasketEntityViewModel,
     viewModel: ProductViewModel = hiltViewModel(),
 
-) {
+
+    ) {
 
     val data by remember { mutableStateOf(viewModel.data) }
     var isLoading by remember { mutableStateOf(true) }
@@ -62,11 +72,11 @@ fun ShowProductScreen(
     var selectedColor by remember { mutableIntStateOf(0) }
 
 
-    viewModel.getProductById(productId) { responce ->
+    viewModel.getProductById(productId) { response ->
         isLoading = false
-        if (responce.status == "OK") {
-            if (responce.data!!.isNotEmpty()) {
-                viewModel.data.value = responce.data!![0]
+        if (response.status == "OK") {
+            if (response.data!!.isNotEmpty()) {
+                viewModel.data.value = response.data!![0]
             } else {
                 Toast.makeText(context, "Error on load data!!", Toast.LENGTH_LONG).show()
                 navController.popBackStack()
@@ -121,7 +131,7 @@ fun ShowProductScreen(
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = "BACK",
-                        tint = Color.White
+                        tint = Color.DarkGray
                     )
                 }
             }
@@ -226,7 +236,25 @@ fun ShowProductScreen(
                     //خرید
                     Spacer(modifier = Modifier.height(45.dp))
                     Button(
-                        onClick = {/*TODO*/ },
+                        onClick = {
+                            CoroutineScope(Dispatchers.IO).launch {
+                                val basket = BasketEntity(
+                                    productId = productId,
+                                    quantity = 1,
+                                    sizeId = data.value!!.sizes!![selectedSize].id!!,
+                                    colorId = data.value!!.colors!![selectedColor].id!!,
+                                    image = data.value!!.image,
+                                    price = data.value!!.price,
+                                    title = data.value!!.title,
+                                    colorHex = data.value!!.colors?.get(selectedColor)!!.hexValue!!,
+                                    size = data.value!!.sizes?.get(selectedSize)!!.title!!
+                                )
+                                basketViewModel.addToBasket(basket)
+
+                            }
+                            Toast.makeText(context,"Product added to your basket", Toast.LENGTH_LONG).show()
+                            navController.popBackStack()
+                        },
                         shape = RoundedCornerShape(15.dp),
                         modifier = Modifier
                             .fillMaxWidth()

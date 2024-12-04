@@ -3,20 +3,20 @@ package com.onlineShop.app.ui.screen
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.onlineShop.app.ui.components.TopAppView
+import com.onlineShop.app.MainActivity
+import com.onlineShop.app.db.viewmodels.BasketEntityViewModel
 import com.onlineShop.app.utils.ThisApp
 
 
 @Composable
-fun MainScreen() {
+fun MainScreen(mainActivity: MainActivity) {
     val navController = rememberNavController()
 
     Scaffold {
@@ -51,7 +51,8 @@ fun MainScreen() {
                 )
             ) { backStack ->
                 backStack.arguments?.getLong("productId").let {
-                    ShowProductScreen(it!!, navController)
+                    val basketViewModel = ViewModelProvider(mainActivity).get(BasketEntityViewModel::class.java)
+                    ShowProductScreen(it!!, navController,basketViewModel)
 
                 }
             }
